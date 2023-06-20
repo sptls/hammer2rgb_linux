@@ -105,7 +105,7 @@ PROGRAMS = $(bin_PROGRAMS)
 am_hammer2rgb_OBJECTS = main.$(OBJEXT) settings.$(OBJEXT) \
 	usb.$(OBJEXT)
 hammer2rgb_OBJECTS = $(am_hammer2rgb_OBJECTS)
-hammer2rgb_LDADD = $(LDADD)
+hammer2rgb_DEPENDENCIES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -272,7 +272,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_LDFLAGS = -lusb-1.0
+hammer2rgb_LDADD = -lusb-1.0
 hammer2rgb_SOURCES = main.c \
                       settings.c \
                       settings.h \
