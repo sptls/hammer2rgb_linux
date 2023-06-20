@@ -59,5 +59,7 @@ Currenty only supports changing effects and using preset colors
 - brightness change
 
 ## Versions
+### 1.1
+- fixed segfault when hammer 2 keyboard is not found
 ### 1.0
 - basic functionality of changing keyboard effect and color preset
