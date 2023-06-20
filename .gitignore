@@ -1,0 +1,16 @@
+Makefile
+config.h
+config.log
+config.status
+hammer2rgb-1.0.tar.gz
+src/.deps/
+src/Makefile
+src/config.h
+src/config.log
+src/config.status
+src/hammer2rgb
+src/main.o
+src/settings.o
+src/stamp-h1
+src/usb.o
+stamp-h1
