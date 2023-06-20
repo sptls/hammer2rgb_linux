@@ -56,6 +56,7 @@ int GetKeyboardHandle()
     if(keyboard_found != VC_TRUE)
     {
         printf("Modecom Volcano Hammer 2 RGB keyboard not found!\n");
+        return 1;
     }
 
     return 0;
