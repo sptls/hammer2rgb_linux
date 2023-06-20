@@ -3,7 +3,13 @@
 
 This CLI tool is designed to be used with Modecom Volcan Hammer 2 RGB keyboard. It (mostly)replicates what Windows
 equivalent is doing; changing effect, color, brightness, speed. \
-Also available in [AUR](https://aur.archlinux.org/packages/hammer2rgb)
+Also available in [AUR](https://aur.archlinux.org/packages/hammer2rgb) \
+or as deb package: \
+```
+echo "deb [trusted=yes arch=amd64] http://spotless.fun/apt-repo stable main" >> /etc/apt/sources.list
+sudo apt update --allow-insecure-repositories
+sudo apt install hammer2rgb
+```
 
 ## Usage
 Building:
