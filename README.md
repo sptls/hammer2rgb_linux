@@ -2,7 +2,9 @@
 ![alt text](pic.jpg)
 
 This CLI tool is designed to be used with Modecom Volcan Hammer 2 RGB keyboard. It (mostly)replicates what Windows
-equivalent is doing; changing effect, color, brightness, speed. 
+equivalent is doing; changing effect, color, brightness, speed. \
+Also available in [AUR](https://aur.archlinux.org/packages/hammer2rgb)
+
 ## Usage
 Building:
 > ./configure \
