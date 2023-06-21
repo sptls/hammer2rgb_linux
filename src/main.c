@@ -47,7 +47,7 @@ int main(int argc, char **argv)
                 
             case VC_ERR_SPEED_VALUE:
                 printf("Speed value %s in not correct\n", argv[i]);
-                printf("It should be \"b[1-4]\"\neg. \"hammer2rgb fixed_on red s3\"\n", argv[i]);
+                printf("It should be \"b[1-4]\"\neg. \"hammer2rgb fixed_on red s3\"\n");
                 return VC_ERR_SPEED_VALUE;
         }
     }
