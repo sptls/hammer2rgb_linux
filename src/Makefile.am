@@ -5,4 +5,5 @@ hammer2rgb_SOURCES =  main.c \
                       settings.h \
                       usb.c \
                       usb.h \
-                      packets.h
+                      packets.h \
+                      constants.h

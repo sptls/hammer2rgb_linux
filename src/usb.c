@@ -1,5 +1,4 @@
 #include "usb.h"
-#include <stdio.h>
 
 int InitUsb()
 {
@@ -28,24 +27,24 @@ int GetKeyboardHandle()
                 if(err == LIBUSB_ERROR_ACCESS)
                 {
                     printf("No acces to usb device!\nFix by runing \"sudo hammer2kb --add-usb-rule\"\n");
-                    return 1;
+                    return VC_ERR_PERMISION;
                 }
                 printf("failed to open device! Error code: %i\n", err);
-                return 1;
+                return VC_ERR_USB;
             }
 
             err = libusb_set_auto_detach_kernel_driver(kb_handle, 1);
             if(err != LIBUSB_SUCCESS)
             {
                 printf("Failed to detach kernel driver! %i\n", err);
-                return 1;
+                return VC_ERR_USB;
             }
 
             err = libusb_claim_interface(kb_handle, VC_KB_INTERFACE_NR);
             if(err)
             {
                 printf("Failed to claim device interface! %i\n", err);
-                return 1;
+                return VC_ERR_USB;
             }
 
             libusb_free_device_list(list, 1);
@@ -56,10 +55,10 @@ int GetKeyboardHandle()
     if(keyboard_found != VC_TRUE)
     {
         printf("Modecom Volcano Hammer 2 RGB keyboard not found!\n");
-        return 1;
+        return VC_ERR_KB_NOT_FOUND;
     }
 
-    return 0;
+    return VC_OK;
 
 };
 
@@ -88,7 +87,11 @@ int ChangeEffect(kb_settings *kbs)
 {
     kb_effect_packet[VC_PACKET_EFFECT_INDEX] = kbs->effect;
     kb_effect_packet[VC_PACKET_APPLY_EFFECT_INDEX] = VC_PACKET_APPLY_EFFECT;
-    kb_effect_packet[VC_PACKET_RANDOM_COLOR_INDEX + kbs->rc_offset] = kbs->random_color;
+    kb_effect_packet[kbs->rc_offset] = kbs->random_color;
+    if(kbs->change_brightness || kbs->change_color)
+    {
+        kb_effect_packet[kbs->sb_byte_offset] = kbs->sb_byte;
+    }
 
     return SendPacket(kb_effect_packet);
 };
@@ -124,15 +127,15 @@ int AddUsbUdevRule()
         {
             printf("File can't be accesed. Permission denied. Try sudo\n");
         }
-        return 1;
+        return VC_ERR_PERMISION;
     }
 
-    const char usb_rule_string[] = "SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"0016\", ATTRS{idVendor}==\"258a\", MODE=\"0660\", TAG+=\"uaccess\"\n\0";
+    const char usb_rule_string[] = "SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"0016\", ATTRS{idVendor}==\"258a\", MODE=\"0660\", TAG+=\"uaccess\"";
     fprintf(f, usb_rule_string);
 
     fclose(f);
 
     printf("Rule set in \"%s\"\nNow reboot you machine or reload UDEV rules with \"sudo udevadm trigger\"\n", usb_rule_path);
 
-    return 0;
+    return VC_UDEV_RULE_ADDED;
 };

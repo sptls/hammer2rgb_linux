@@ -1,23 +1,8 @@
 #ifndef VOLCANO_USB_PACKETS_H_
 #define VOLCANO_USB_PACKETS_H_
 
-#define VC_USB_PACKET_SIZE 1032
+#include "constants.h"
 
-/**
- * Effects
-*/
-#define VC_PACKET_EFFECT_INDEX 21
-#define VC_PACKET_APPLY_EFFECT_INDEX 22
-#define VC_PACKET_APPLY_EFFECT 0x21
-
-/**
- * Colors
-*/
-#define VC_PACKET_RED_INDEX 2
-#define VC_PACKET_GREEN_INDEX 1
-#define VC_PACKET_BLUE_INDEX 0
-#define VC_PACKET_RANDOM_COLOR_INDEX 34
-#define VC_RANDOM_COLOR_VALUE 0x07
 
 static unsigned char kb_effect_packet[VC_USB_PACKET_SIZE] = {
 0x06, //0
