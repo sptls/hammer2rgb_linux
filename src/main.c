@@ -42,7 +42,7 @@ int main(int argc, char **argv)
                 
             case VC_ERR_BRIGHTNES_VALUE:
                 printf("Brightness value %s in not correct\n", argv[i]);
-                printf("It should be \"b[1-3]\"\neg. \"hammer2rgb fixed_on red b2\"\n", argv[i]);
+                printf("It should be \"b[1-3]\"\neg. \"hammer2rgb fixed_on red b2\"\n");
                 return VC_ERR_BRIGHTNES_VALUE;
                 
             case VC_ERR_SPEED_VALUE:
