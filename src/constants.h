@@ -1,6 +1,8 @@
 #ifndef VC_MODECOM_CONSTANTS_H_
 #define VC_MODECOM_CONSTANTS_H_
 
+#define HAMMER2RGB_VERSION              "1.3"
+
 /**
  * USB packets
 */

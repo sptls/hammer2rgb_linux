@@ -27,6 +27,11 @@ int GetSettings(char *arg, kb_settings *kbs)
         ShowOptions();
         return VC_SHOW_INFO;
     }
+    if(strcmp(tmp_argv, "--version") == 0)
+    {
+        printf("%s\n", HAMMER2RGB_VERSION);
+        return VC_SHOW_INFO;
+    }
 
     /**
      * Speed and brightness value are stored in
@@ -156,7 +161,8 @@ int GetSettings(char *arg, kb_settings *kbs)
 
 void ShowUsage()
 {
-    printf("Usage: hammer2kb [EFFECT] [COLOR] off bN sN --help --options --add-usb-rule\n\n");
+    printf("Usage: hammer2kb [EFFECT] [COLOR] off bN sN --help --options --add-usb-rule --version\n");
+    printf("Version: %s\n\n", HAMMER2RGB_VERSION);
     printf("This program changes effects and colors of Volcano Modecom HAMMER 2 RGB mechanical keyboard\n");
     printf("Changing color, brightness or speed alwas need to have effect defined.\n");
     printf("Options are case insensitive and don't have to be in order\n");
@@ -168,6 +174,7 @@ void ShowUsage()
     printf("\t--help\t\t- show this message\n");
     printf("\t--options\t- show available keyboard effects and color presets\n");
     printf("\t--add-usb-rule\t- adds UDEV rule to access keybaord USB without root permission\n");
+    printf("\t--version\t\t- print version\n");
 };
 
 int GetRGB(char *color, kb_settings *kbs)
