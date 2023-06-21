@@ -25,8 +25,6 @@ You always have to specify effect when changing color, speed or brightness.
 Eg.
 > hammer2rgb fixed_on green
 
-Options can be listed by running without any arguments \
-Currenty only supports changing effects and using preset colors
 
 
 ### List of keyboard effects:
