@@ -88,7 +88,7 @@ int ChangeEffect(kb_settings *kbs)
     kb_effect_packet[VC_PACKET_EFFECT_INDEX] = kbs->effect;
     kb_effect_packet[VC_PACKET_APPLY_EFFECT_INDEX] = VC_PACKET_APPLY_EFFECT;
     kb_effect_packet[kbs->rc_offset] = kbs->random_color;
-    if(kbs->change_brightness || kbs->change_color)
+    if(kbs->change_brightness || kbs->change_speed)
     {
         kb_effect_packet[kbs->sb_byte_offset] = kbs->sb_byte;
     }
